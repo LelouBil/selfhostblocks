@@ -99,12 +99,12 @@ time with:
 
 ```nix
 # See https://www.freedesktop.org/software/systemd/man/journald.conf.html#SystemMaxUse=
-services.journald.extraConfig = ''
-SystemMaxUse=2G
-SystemKeepFree=4G
-SystemMaxFileSize=100M
-MaxFileSec=day
-'';
+  services.journald.settings.Journal = {
+    SystemMaxUse="2G";
+    SystemKeepFree="4G";
+    SystemMaxFileSize="100M";
+    MaxFileSec="1d";
+  };
 ```
 
 Other options are accessible through the upstream services modules.
